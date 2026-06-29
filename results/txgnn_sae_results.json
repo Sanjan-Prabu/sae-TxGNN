@@ -1,0 +1,63 @@
+{
+  "n_nodes": 129312,
+  "train_nodes": 103449,
+  "heldout_nodes": 25863,
+  "dim": 512,
+  "n_features": 4096,
+  "k": 32,
+  "heldout_fvu": 0.016,
+  "heldout_features_purity_ge_0.7": 1133,
+  "heldout_features_purity_ge_0.8": 1083,
+  "best_detector_per_type": {
+    "anatomy": {
+      "purity": 1.0,
+      "enrichment": 9.1,
+      "base_rate": 0.11
+    },
+    "biological_process": {
+      "purity": 1.0,
+      "enrichment": 4.6,
+      "base_rate": 0.2186
+    },
+    "cellular_component": {
+      "purity": 1.0,
+      "enrichment": 30.9,
+      "base_rate": 0.0324
+    },
+    "disease": {
+      "purity": 1.0,
+      "enrichment": 7.8,
+      "base_rate": 0.1285
+    },
+    "drug": {
+      "purity": 1.0,
+      "enrichment": 16.7,
+      "base_rate": 0.0597
+    },
+    "effect/phenotype": {
+      "purity": 1.0,
+      "enrichment": 8.3,
+      "base_rate": 0.1198
+    },
+    "exposure": {
+      "purity": 1.0,
+      "enrichment": 136.1,
+      "base_rate": 0.0073
+    },
+    "gene/protein": {
+      "purity": 1.0,
+      "enrichment": 4.7,
+      "base_rate": 0.212
+    },
+    "molecular_function": {
+      "purity": 1.0,
+      "enrichment": 10.9,
+      "base_rate": 0.0918
+    },
+    "pathway": {
+      "purity": 1.0,
+      "enrichment": 50.5,
+      "base_rate": 0.0198
+    }
+  }
+}

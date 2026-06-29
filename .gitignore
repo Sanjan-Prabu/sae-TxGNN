@@ -1,0 +1,8 @@
+# Large / downloaded / regenerated — not committed
+*.zip
+*.pkl
+*.npz
+*.pt
+TxGNNExplorer/
+__pycache__/
+.ipynb_checkpoints/
