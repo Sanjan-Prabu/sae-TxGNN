@@ -35,7 +35,9 @@ knowledge graph. This is the relational-graph analogue of our earlier molecular-
 - **Finer than node type (qualitative):** individual features organize within a type — e.g. one
   drug feature's top drugs are all **antidiabetics** (Pioglitazone, Repaglinide, Insulin
   glulisine, Empagliflozin...), and disease features split into **neurological** vs
-  **infectious/inflammatory** groups (see Figure 1).
+  **infectious/inflammatory** groups (Figure 1). A systematic, deduplicated scan surfaced
+  **dozens of distinct, clinically coherent sub-classes** (Figure 4) — confirming the embedding
+  space is organized far below the node-type level.
 
 **Takeaway:** TxGNN's embedding space is cleanly organized by biological role, and SAE features
 recover it. Node type is validated quantitatively; finer drug-class / disease-category structure
@@ -48,6 +50,10 @@ is visible qualitatively and is the natural next validation step (using ontology
 - `fig2_best_feature_per_type.png` — best feature per node type; the **bright diagonal** shows
   each type has its own dedicated detector, with enrichment in the axis labels.
 - `fig3_interpretability_summary.png` — interpretability tiers + enrichment per node type.
+- `fig4_discovered_niches.png` — **a catalog of distinct clinical sub-classes the SAE found
+  *within* the drug and disease types.** Each card is one feature + example members — drug
+  classes (antipsychotics, HIV antiretrovirals, the multiple-myeloma regimen, ...) and disease
+  categories (lymphomas/leukemias, botulism, corneal dystrophies, embryonal CNS tumors, ...).
 
 ## Run it
 
