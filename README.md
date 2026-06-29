@@ -48,8 +48,14 @@ is visible qualitatively and is the natural next validation step (using ontology
 - `fig1_top_nodes.png` — representative features with their top-activating nodes named
   (reveals the finer drug-class / disease-group structure).
 - `fig2_best_feature_per_type.png` — best feature per node type; the **bright diagonal** shows
-  each type has its own dedicated detector, with enrichment in the axis labels.
-- `fig3_interpretability_summary.png` — interpretability tiers + enrichment per node type.
+  each type has its own dedicated detector. Each row also carries the type's **base rate**, which
+  makes the perfect (1.0) purity meaningful: 1.0 for gene/protein (21% of nodes) is only ~5x
+  enrichment, whereas 1.0 for exposure (0.7%) is ~136x.
+- `fig3_interpretability_summary.png` — **precision and recall shown directly** (enrichment alone
+  makes rare types look "best"). Left: every feature has near-perfect precision but low recall
+  (each type is split across many features). Right: the cleanest detector per type — precision is
+  ~1.0 for all types, while single-feature recall scales inversely with base rate (one feature
+  catches ~78% of all pathway nodes but ~0% of the much larger gene/protein set).
 - `fig4_discovered_niches.png` — **a catalog of distinct clinical sub-classes the SAE found
   *within* the drug and disease types.** Each card is one feature + example members — drug
   classes (antipsychotics, HIV antiretrovirals, the multiple-myeloma regimen, ...) and disease
