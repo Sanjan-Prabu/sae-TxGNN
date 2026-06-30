@@ -43,6 +43,27 @@ knowledge graph. This is the relational-graph analogue of our earlier molecular-
 recover it. Node type is validated quantitatively; finer drug-class / disease-category structure
 is visible qualitatively and is the natural next validation step (using ontology labels).
 
+## Causal steering — is a feature *used*, or just correlated?
+
+The results above show features **correlate** with concepts. Steering tests the causal claim:
+inject a feature into the model's reasoning and see whether its predictions move. TxGNN scores a
+drug-disease pair with a **DistMult** decoder (`score = sum(drug * relation * disease)`). We find
+the **indication** relation (the one that scores known treatment pairs highest), pick the
+**antidiabetic feature** (top-activating drugs = Metformin, Pioglitazone, Sitagliptin, ...), then
+inject its decoder direction into drug embeddings and re-score every disease; the mirror test
+ablates it from real antidiabetic drugs.
+
+- **Injection:** diabetes/metabolic indication scores rise **+0.189** vs **+0.077** for other
+  diseases — **2.5x more**.
+- **Ablation:** removing the feature from antidiabetic drugs drops diabetes indications
+  **-0.184** vs **-0.075** for others — correct sign, again **~2.5x**.
+
+The feature is **causally wired** to diabetes predictions in both directions. Honest caveat: the
+single biggest individual risers are broader endocrine conditions (gynecomastia, aromatase excess
+syndrome, breast hypertrophy), so one feature is a **diffuse lever** over a metabolic/endocrine
+neighborhood, not a clean diabetes-only knob. This is the relational-graph analogue of InterPLM's
+steering check; sharpening specificity with feature combinations is the natural next step.
+
 ## Figures (`figures/`)
 
 - `fig1_top_nodes.png` — representative features with their top-activating nodes named
@@ -60,6 +81,9 @@ is visible qualitatively and is the natural next validation step (using ontology
   *within* the drug and disease types.** Each card is one feature + example members — drug
   classes (antipsychotics, HIV antiretrovirals, the multiple-myeloma regimen, ...) and disease
   categories (lymphomas/leukemias, botulism, corneal dystrophies, embryonal CNS tumors, ...).
+- `fig5_steering.png` — **causal steering.** Left: injecting the antidiabetic feature raises
+  diabetes/metabolic indication scores 2.5x more than other diseases (box plot, means marked).
+  Right: the largest individual risers, showing the feature is a diffuse endocrine/metabolic lever.
 
 ## Run it
 

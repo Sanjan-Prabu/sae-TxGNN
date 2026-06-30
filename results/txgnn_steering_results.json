@@ -1,0 +1,41 @@
+{
+  "indication_relation_idx": 3,
+  "known_pairs": 193,
+  "antidiabetic_feature": 3357,
+  "amp": 7.725,
+  "feature_top_drugs": [
+    "Chlorpropamide",
+    "Pioglitazone",
+    "Nateglinide",
+    "Metformin",
+    "Sitagliptin",
+    "Repaglinide",
+    "Glimepiride",
+    "Albiglutide",
+    "Glyburide",
+    "Glipizide"
+  ],
+  "mean_dScore_diabetes": 0.189,
+  "mean_dScore_other": 0.077,
+  "frac_diabetes_in_top30": 0.0,
+  "diabetes_base_rate": 0.02,
+  "ablation_dScore_diabetes": -0.184,
+  "ablation_dScore_other": -0.075,
+  "top_risen_diseases": [
+    "gynecomastia",
+    "urticaria (disease)",
+    "familial dermatographia",
+    "migraine with or without aura, susceptibility to",
+    "aromatase excess syndrome",
+    "anus disease",
+    "palmoplantar keratoderma, Bothnian type",
+    "insomnia (disease)",
+    "resistance to thyrotropin-releasing hormone syndrome",
+    "endometriosis of uterus",
+    "periodic paralysis (disease)",
+    "hypertrophy of breast",
+    "Cryptococcal meningitis",
+    "sclerocornea, autosomal dominant",
+    "benign prostatic hyperplasia (disease)"
+  ]
+}
