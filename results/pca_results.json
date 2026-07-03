@@ -1,0 +1,6 @@
+{
+  "probe_accuracy_sae_features": 0.991,
+  "probe_accuracy_pca50": 0.9886,
+  "probe_accuracy_raw": 0.9913,
+  "pca50_variance_explained": 0.7988
+}

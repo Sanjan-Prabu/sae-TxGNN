@@ -54,6 +54,7 @@ A quick map of the evidence, from "the features exist" to "the features are caus
 | **Causal steering** (fig 5) | inject / ablate a feature, re-score with TxGNN's decoder | features are *causally used* by the model, not just correlated |
 | **UMAP** (fig 6) | non-linear 2-D projection of the embeddings | types form separate islands; features occupy tight regions |
 | **Linear probe** (fig 7) | logistic regression: predict node type from the code | the sparse SAE code preserves the information (99.1%, = raw) |
+| **PCA baseline** (fig 8) | linear PCA map + probe on top-50 PCs | info is linearly present (PCA 98.9%); but PCA can't separate types visually or give interpretable features — the SAE can |
 | **Ontology grounding** (JSON) | match feature members to WHO ATC / Disease Ontology | features line up with independent, curated ontologies |
 
 Terms in one line each: **UMAP** = a way to draw 512-dimensional vectors as a 2-D scatter while keeping
@@ -145,6 +146,25 @@ The point: even though each node's SAE code is **sparse** (only k=32 of 4096 fea
 model reads node type out of it just as well as from the full dense embedding. The SAE reorganizes the
 information into an interpretable, sparse basis **without discarding it** — the interpretability comes
 at no measurable cost to what the representation encodes.
+
+## PCA baseline — does trivial linear compression do just as well?
+
+`fig8_pca.png` + `results/pca_results.json`. A skeptic's question: is any of this special to the SAE, or
+would plain **PCA** (Principal Component Analysis — the standard *linear* dimensionality reduction) give
+the same story? We ran both a PCA map and a PCA probe as a baseline.
+
+- **As a map (left panel):** PCA smears the node types into overlapping spokes with everything piling up
+  near the origin — you *cannot* cleanly separate the ten types. This is exactly why we used **UMAP**
+  (non-linear) for fig6: UMAP pulls the types into distinct islands, PCA can't.
+- **As a probe (right panel):** a linear probe on the **top 50 principal components** (which capture
+  ~80% of the variance) reaches **98.9%** node-type accuracy — essentially tied with the SAE code
+  (**99.1%**) and raw embeddings (**99.1%**).
+
+Two takeaways. (1) The information is **linearly present** in the embeddings (so PCA and the SAE both
+recover it for a coarse task like node type) — a healthy sanity check. (2) But PCA gives you a handful
+of dense, un-interpretable axes; the **SAE gives thousands of sparse, individually-meaningful features**
+that map to specific drug classes and diseases (see ontology grounding). PCA matches the SAE on the easy
+*quantitative* task and loses badly on the *interpretability* task — which is the whole point of the SAE.
 
 ## Embedding map (UMAP)
 
