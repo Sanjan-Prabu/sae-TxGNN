@@ -1,0 +1,30 @@
+{
+  "probe_accuracy_sae_features": 0.9914,
+  "probe_accuracy_raw_embeddings": 0.9912,
+  "sparsity_k": 32,
+  "n_features": 4096,
+  "per_type_recall_sae": {
+    "anatomy": 1.0,
+    "biological_process": 0.995,
+    "cellular_component": 0.981,
+    "disease": 0.992,
+    "drug": 0.984,
+    "effect/phenotype": 0.986,
+    "exposure": 0.984,
+    "gene/protein": 0.997,
+    "molecular_function": 0.974,
+    "pathway": 1.0
+  },
+  "per_type_recall_raw": {
+    "anatomy": 1.0,
+    "biological_process": 0.995,
+    "cellular_component": 0.981,
+    "disease": 0.992,
+    "drug": 0.983,
+    "effect/phenotype": 0.986,
+    "exposure": 0.984,
+    "gene/protein": 0.996,
+    "molecular_function": 0.974,
+    "pathway": 1.0
+  }
+}

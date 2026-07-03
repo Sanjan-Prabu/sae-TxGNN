@@ -64,6 +64,20 @@ syndrome, breast hypertrophy), so one feature is a **diffuse lever** over a meta
 neighborhood, not a clean diabetes-only knob. This is the relational-graph analogue of InterPLM's
 steering check; sharpening specificity with feature combinations is the natural next step.
 
+## Linear probe — do the sparse features actually carry the information?
+
+`fig7_probe.png` + `results/probe_results.json`. We train a **linear probe** (a multinomial logistic
+regression, i.e. a simple linear classifier) to predict a node's type from (a) the SAE's sparse
+feature code and (b) the raw 512-d embedding, scoring on **held-out** nodes.
+
+- Probe on **SAE features: 99.1%** accuracy vs raw embeddings **99.1%** — statistically identical.
+- Per-type recall is ≥0.97 for all ten types from the SAE code.
+
+The point: even though each node's SAE code is **sparse** (only k=32 of 4096 features active), a linear
+model reads node type out of it just as well as from the full dense embedding. The SAE reorganizes the
+information into an interpretable, sparse basis **without discarding it** — the interpretability comes
+at no measurable cost to what the representation encodes.
+
 ## Embedding map (UMAP)
 
 `fig6_umap.png` projects TxGNN's 512-d node embeddings to 2-D with UMAP. **Left:** colored by node
