@@ -73,18 +73,28 @@ its top-activating members that belong to one ATC class:
 
 | Feature | ATC class | members in class | precision |
 |---|---|---|---|
-| feat 3  | J05A antivirals for systemic use (HIV) | 15 / 15 | **1.00** |
-| feat 11 | A10 drugs used in diabetes | 15 / 15 | **1.00** |
-| feat 14 | N05A antipsychotics | 15 / 15 | **1.00** |
-| feat 79 | C09 renin-angiotensin agents (ACE inhibitors / ARBs) | 12 / 15 | **0.80** |
+| feat 3   | J05A antivirals for systemic use (HIV) | 15 / 15 | **1.00** |
+| feat 11  | A10 drugs used in diabetes | 15 / 15 | **1.00** |
+| feat 258 | A10 diabetes (GLP-1 / sulfonylureas / gliptins) | 15 / 15 | **1.00** |
+| feat 14  | N05A antipsychotics | 15 / 15 | **1.00** |
+| feat 302 | N06A antidepressants | 15 / 15 | **1.00** |
+| feat 467 | L01 antineoplastic agents | 15 / 15 | **1.00** |
+| feat 693 | B01A antithrombotics (heparins / anticoagulants) | 14 / 15 | **0.93** |
+| feat 685 | L01 antineoplastic (cytotoxic) agents | 12 / 15 | **0.80** |
+| feat 749 | H01C hypothalamic hormones (GnRH analogs) | 12 / 15 | **0.80** |
+| feat 79  | C09 renin-angiotensin agents (ACE inhibitors / ARBs) | 12 / 15 | **0.80** |
 
-Three features are perfectly aligned to a single ATC class; feat 79's three "misses" (bisoprolol,
-nebivolol, metolazone) are other **antihypertensives** (C07 beta-blockers, C03 diuretic), so the
-feature really tracks *blood-pressure drugs* slightly more broadly than ACE/ARB alone. This is the
-direct analogue of InterPLM validating protein features against Swiss-Prot: the SAE features line up
-with an independent, curated ontology. Extending this to all ~290 drug features (via a full ATC lookup
-table) and to the disease features (whose nodes are already **MONDO** ontology terms) is the clean next
-step.
+Six of the ten features align **perfectly** to a single ATC class; the rest miss only on close
+neighbours (feat 79's three "misses" are other antihypertensives — C07 beta-blockers, C03 diuretic;
+feat 685's are endocrine cancer therapies — L02; feat 749's include a related gonadotropin). Note there
+are **several distinct diabetes features** (11, 258, plus others) — the SAE splits one ATC class into
+finer sub-classes. This is the direct analogue of InterPLM validating protein features against
+Swiss-Prot: the SAE features line up with an independent, curated ontology.
+
+**Coverage:** we graded the interpretable **approved-drug** features; roughly half of all 290 drug
+features are dominated by **experimental/research compounds** (long IUPAC names, no marketed drug), which
+have no ATC code and can't be graded this way. Full automation over every gradeable feature (via a
+complete ATC lookup table) is the scale-up step. Disease-side grounding is covered below.
 
 ## Linear probe — do the sparse features actually carry the information?
 

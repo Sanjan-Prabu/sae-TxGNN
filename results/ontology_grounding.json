@@ -1,6 +1,9 @@
 {
-  "note": "Drug SAE features grounded to WHO ATC therapeutic classes; precision = fraction of a feature's top members in its modal ATC class.",
-  "features": [
+  "ontology": "WHO ATC (Anatomical Therapeutic Chemical classification)",
+  "note": "Drug SAE features grounded to WHO ATC therapeutic classes. precision = fraction of a feature's top-activating members belonging to its modal ATC class. Covers the interpretable approved-drug features; ~half of the 290 drug features are dominated by experimental/research compounds that have no ATC code and are not gradeable this way.",
+  "n_drug_features_total": 290,
+  "n_graded": 10,
+  "drug_features": [
     {
       "feature": 3,
       "atc_class": "J05A",
@@ -20,6 +23,15 @@
       "outliers": []
     },
     {
+      "feature": 258,
+      "atc_class": "A10",
+      "label": "A10 drugs used in diabetes (GLP-1 / sulfonylureas / gliptins)",
+      "members": 15,
+      "in_class": 15,
+      "precision": 1.0,
+      "outliers": []
+    },
+    {
       "feature": 14,
       "atc_class": "N05A",
       "label": "N05A antipsychotics",
@@ -29,9 +41,18 @@
       "outliers": []
     },
     {
+      "feature": 302,
+      "atc_class": "N06A",
+      "label": "N06A antidepressants",
+      "members": 15,
+      "in_class": 15,
+      "precision": 1.0,
+      "outliers": []
+    },
+    {
       "feature": 79,
       "atc_class": "C09",
-      "label": "C09 renin-angiotensin system agents (ACE inhibitors / ARBs)",
+      "label": "C09 renin-angiotensin agents (ACE inhibitors / ARBs)",
       "members": 15,
       "in_class": 12,
       "precision": 0.8,
@@ -39,6 +60,52 @@
         "Bisoprolol (C07)",
         "Nebivolol (C07)",
         "Metolazone (C03)"
+      ]
+    },
+    {
+      "feature": 467,
+      "atc_class": "L01",
+      "label": "L01 antineoplastic agents",
+      "members": 15,
+      "in_class": 15,
+      "precision": 1.0,
+      "outliers": []
+    },
+    {
+      "feature": 685,
+      "atc_class": "L01",
+      "label": "L01 antineoplastic (cytotoxic) agents",
+      "members": 15,
+      "in_class": 12,
+      "precision": 0.8,
+      "outliers": [
+        "Letrozole (L02)",
+        "Megestrol acetate (L02)",
+        "Tamoxifen (L02)"
+      ]
+    },
+    {
+      "feature": 693,
+      "atc_class": "B01A",
+      "label": "B01A antithrombotic agents (heparins / anticoagulants)",
+      "members": 15,
+      "in_class": 14,
+      "precision": 0.933,
+      "outliers": [
+        "Edetic acid (V03)"
+      ]
+    },
+    {
+      "feature": 749,
+      "atc_class": "H01C",
+      "label": "H01C hypothalamic hormones (GnRH agonists / antagonists)",
+      "members": 15,
+      "in_class": 12,
+      "precision": 0.8,
+      "outliers": [
+        "Urofollitropin (G03)",
+        "Parathyroid hormone (H05)",
+        "3-(2,6-difluorophenyl)-2-(methylthio)quinazolin-4(3H)-one (research)"
       ]
     }
   ]
