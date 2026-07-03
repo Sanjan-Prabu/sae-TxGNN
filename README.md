@@ -64,6 +64,14 @@ syndrome, breast hypertrophy), so one feature is a **diffuse lever** over a meta
 neighborhood, not a clean diabetes-only knob. This is the relational-graph analogue of InterPLM's
 steering check; sharpening specificity with feature combinations is the natural next step.
 
+## Embedding map (UMAP)
+
+`fig6_umap.png` projects TxGNN's 512-d node embeddings to 2-D with UMAP. **Left:** colored by node
+type — the ten biological types form clean, separated islands, a visual confirmation that the
+embedding space is organized by role. **Right:** the same map with the top-activating nodes of a few
+SAE features overlaid; each feature lights up a **tight local region** rather than scattering, which
+is what "the SAE picks out coherent directions" looks like geometrically.
+
 ## Figures (`figures/`)
 
 - `fig1_top_nodes.png` — representative features with their top-activating nodes named
