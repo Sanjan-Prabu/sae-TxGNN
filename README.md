@@ -43,6 +43,26 @@ knowledge graph. This is the relational-graph analogue of our earlier molecular-
 recover it. Node type is validated quantitatively; finer drug-class / disease-category structure
 is visible qualitatively and is the natural next validation step (using ontology labels).
 
+## Validation summary — what each check proves
+
+A quick map of the evidence, from "the features exist" to "the features are causal and real":
+
+| Check | Method | What it proves |
+|---|---|---|
+| **Purity / enrichment** (fig 1–3) | fraction of a feature's top nodes sharing a node type, vs chance | features fire for coherent, single concepts, not random mixes |
+| **Discovered niches** (fig 4) | dedup scan for sub-classes within a type | structure exists *below* node type (drug classes, disease categories) |
+| **Causal steering** (fig 5) | inject / ablate a feature, re-score with TxGNN's decoder | features are *causally used* by the model, not just correlated |
+| **UMAP** (fig 6) | non-linear 2-D projection of the embeddings | types form separate islands; features occupy tight regions |
+| **Linear probe** (fig 7) | logistic regression: predict node type from the code | the sparse SAE code preserves the information (99.1%, = raw) |
+| **Ontology grounding** (JSON) | match feature members to WHO ATC / Disease Ontology | features line up with independent, curated ontologies |
+
+Terms in one line each: **UMAP** = a way to draw 512-dimensional vectors as a 2-D scatter while keeping
+neighbours together (non-linear; unlike PCA it separates clusters rather than blurring them). **Linear
+probe** = a deliberately simple linear classifier — if *it* can read node type out of the code, the
+information is stored in an easily-accessible way. **Ontology** = an external, expert-curated
+classification (WHO **ATC** for drugs, **Disease Ontology / MONDO** for diseases) — matching to it is
+independent evidence, the analogue of InterPLM checking protein features against Swiss-Prot.
+
 ## Causal steering — is a feature *used*, or just correlated?
 
 The results above show features **correlate** with concepts. Steering tests the causal claim:
