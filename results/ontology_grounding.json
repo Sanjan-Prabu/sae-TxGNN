@@ -108,5 +108,61 @@
         "3-(2,6-difluorophenyl)-2-(methylthio)quinazolin-4(3H)-one (research)"
       ]
     }
+  ],
+  "disease_ontology": "Disease Ontology / MONDO (top-level disease categories)",
+  "disease_note": "Disease SAE features are noisier than drug features; these are the cleanest, graded against Disease Ontology categories. TxGNN's disease nodes are MONDO terms, so full automated grounding by walking the MONDO hierarchy is the rigorous scale-up.",
+  "n_disease_features_total": 298,
+  "n_disease_graded": 5,
+  "disease_features": [
+    {
+      "feature": 102,
+      "do_category": "hematologic malignancy (lymphoma / leukemia)",
+      "members": 15,
+      "in_class": 14,
+      "precision": 0.933,
+      "outliers": [
+        "ovarian cancer, susceptibility to, 1"
+      ]
+    },
+    {
+      "feature": 506,
+      "do_category": "skin carcinoma (basal cell carcinoma)",
+      "members": 15,
+      "in_class": 15,
+      "precision": 1.0,
+      "outliers": []
+    },
+    {
+      "feature": 455,
+      "do_category": "gynecologic / ovarian cancer",
+      "members": 15,
+      "in_class": 13,
+      "precision": 0.867,
+      "outliers": [
+        "small cell lung carcinoma",
+        "testicular teratoma"
+      ]
+    },
+    {
+      "feature": 520,
+      "do_category": "bacterial infectious disease",
+      "members": 15,
+      "in_class": 13,
+      "precision": 0.867,
+      "outliers": [
+        "cryptosporidiosis",
+        "sclerosing cholangitis"
+      ]
+    },
+    {
+      "feature": 263,
+      "do_category": "skeletal / musculoskeletal dysplasia",
+      "members": 15,
+      "in_class": 14,
+      "precision": 0.933,
+      "outliers": [
+        "hypotensive disorder"
+      ]
+    }
   ]
 }

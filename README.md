@@ -94,7 +94,23 @@ Swiss-Prot: the SAE features line up with an independent, curated ontology.
 **Coverage:** we graded the interpretable **approved-drug** features; roughly half of all 290 drug
 features are dominated by **experimental/research compounds** (long IUPAC names, no marketed drug), which
 have no ATC code and can't be graded this way. Full automation over every gradeable feature (via a
-complete ATC lookup table) is the scale-up step. Disease-side grounding is covered below.
+complete ATC lookup table) is the scale-up step.
+
+**Disease side (Disease Ontology / MONDO).** TxGNN's disease nodes are **MONDO** ontology terms. Disease
+features are noisier than drug features, but the cleanest ones map to Disease Ontology categories:
+
+| Feature | Disease Ontology category | members in class | precision |
+|---|---|---|---|
+| feat 506 | skin carcinoma (basal cell carcinoma) | 15 / 15 | **1.00** |
+| feat 102 | hematologic malignancy (lymphoma / leukemia) | 14 / 15 | **0.93** |
+| feat 263 | skeletal / musculoskeletal dysplasia | 14 / 15 | **0.93** |
+| feat 455 | gynecologic / ovarian cancer | 13 / 15 | **0.87** |
+| feat 520 | bacterial infectious disease | 13 / 15 | **0.87** |
+
+The outliers are near-neighbours (a solid tumor among the blood cancers, a protozoan among the bacterial
+infections). Because the disease nodes already carry MONDO identifiers, the rigorous scale-up is to walk
+the MONDO hierarchy and grade every disease feature automatically — the same way the drug side wants a
+full ATC table.
 
 ## Linear probe — do the sparse features actually carry the information?
 
