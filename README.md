@@ -64,6 +64,28 @@ syndrome, breast hypertrophy), so one feature is a **diffuse lever** over a meta
 neighborhood, not a clean diabetes-only knob. This is the relational-graph analogue of InterPLM's
 steering check; sharpening specificity with feature combinations is the natural next step.
 
+## Ontology grounding — features map to established drug classes (WHO ATC)
+
+`results/ontology_grounding.json`. The niche drug classes above were spotted by eye; here we tie them
+to an **established ontology** so the labels aren't word-of-mouth. We use the **WHO ATC** classification
+(the standard therapeutic taxonomy of drugs) and, for each clean drug feature, report the fraction of
+its top-activating members that belong to one ATC class:
+
+| Feature | ATC class | members in class | precision |
+|---|---|---|---|
+| feat 3  | J05A antivirals for systemic use (HIV) | 15 / 15 | **1.00** |
+| feat 11 | A10 drugs used in diabetes | 15 / 15 | **1.00** |
+| feat 14 | N05A antipsychotics | 15 / 15 | **1.00** |
+| feat 79 | C09 renin-angiotensin agents (ACE inhibitors / ARBs) | 12 / 15 | **0.80** |
+
+Three features are perfectly aligned to a single ATC class; feat 79's three "misses" (bisoprolol,
+nebivolol, metolazone) are other **antihypertensives** (C07 beta-blockers, C03 diuretic), so the
+feature really tracks *blood-pressure drugs* slightly more broadly than ACE/ARB alone. This is the
+direct analogue of InterPLM validating protein features against Swiss-Prot: the SAE features line up
+with an independent, curated ontology. Extending this to all ~290 drug features (via a full ATC lookup
+table) and to the disease features (whose nodes are already **MONDO** ontology terms) is the clean next
+step.
+
 ## Linear probe — do the sparse features actually carry the information?
 
 `fig7_probe.png` + `results/probe_results.json`. We train a **linear probe** (a multinomial logistic

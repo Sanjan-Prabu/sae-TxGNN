@@ -1,0 +1,45 @@
+{
+  "note": "Drug SAE features grounded to WHO ATC therapeutic classes; precision = fraction of a feature's top members in its modal ATC class.",
+  "features": [
+    {
+      "feature": 3,
+      "atc_class": "J05A",
+      "label": "J05A antivirals for systemic use (HIV)",
+      "members": 15,
+      "in_class": 15,
+      "precision": 1.0,
+      "outliers": []
+    },
+    {
+      "feature": 11,
+      "atc_class": "A10",
+      "label": "A10 drugs used in diabetes",
+      "members": 15,
+      "in_class": 15,
+      "precision": 1.0,
+      "outliers": []
+    },
+    {
+      "feature": 14,
+      "atc_class": "N05A",
+      "label": "N05A antipsychotics",
+      "members": 15,
+      "in_class": 15,
+      "precision": 1.0,
+      "outliers": []
+    },
+    {
+      "feature": 79,
+      "atc_class": "C09",
+      "label": "C09 renin-angiotensin system agents (ACE inhibitors / ARBs)",
+      "members": 15,
+      "in_class": 12,
+      "precision": 0.8,
+      "outliers": [
+        "Bisoprolol (C07)",
+        "Nebivolol (C07)",
+        "Metolazone (C03)"
+      ]
+    }
+  ]
+}
